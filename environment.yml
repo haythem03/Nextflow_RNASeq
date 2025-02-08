@@ -1,0 +1,14 @@
+name: rna_seq_pipeline
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - nextflow
+  - fastqc
+  - trim-galore
+  - star
+  - subread
+  - multiqc
+  - python=3.9
+  - openjdk=8
