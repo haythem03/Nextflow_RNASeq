@@ -27,7 +27,7 @@ Create a `data` directory in the root of the project and place your input files 
 - `data/chrX.gtf`: Reference gene annotation in GTF format.
 
 
-You can also modify the paths in the `main.nf` file if your data files are located elsewhere.
+You can also modify the paths in the `Nextflow_Pipeline.nf` file if your data files are located elsewhere.
 
 ### 3. Install Nextflow
 
@@ -42,7 +42,7 @@ curl -s https://get.nextflow.io | bash
 Once the setup is complete, you can run the pipeline with Nextflow:
 
 ```bash
-nextflow run main.nf
+nextflow run Nextflow_Pipeline.nf
 ```
 
 The pipeline will process your RNA-seq data, and results will be saved in the `results/` directory, with the following output structure:
@@ -86,7 +86,7 @@ Due to size limitations, the `chrX.fa` reference genome is provided in split chu
 
 ## Customization
 
-You can customize various parameters by editing the `main.nf` file or by providing them as Nextflow parameters when running the pipeline. For example:
+You can customize various parameters by editing the `Nextflow_Pipeline.nf` file or by providing them as Nextflow parameters when running the pipeline. For example:
 - `params.ref_fasta`: Path to the reference genome FASTA file.
 - `params.ref_gtf`: Path to the reference GTF file.
 - `params.reads`: Path to the paired-end FASTQ files.
