@@ -60,6 +60,9 @@ The pipeline will process your RNA-seq data, and results will be saved in the `r
 4. **Read Mapping**: Paired-end reads are aligned to the reference genome using the STAR aligner.
 5. **Feature Counting**: The aligned BAM files are processed with featureCounts to count the number of reads aligned to each gene.
 
+   ![Untitled diagram-2025-03-27-032756](https://github.com/user-attachments/assets/5bf25b15-9248-4fe8-aa04-69f084511e90)
+
+
 ## Downloading and Merging the Reference Genome
 
 Due to size limitations, the `chrX.fa` reference genome is provided in split chunks. Follow these steps to merge the chunks back into a single FASTA file:
