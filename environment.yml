@@ -1,8 +1,10 @@
 name: rna_seq_pipeline
+
 channels:
   - bioconda
   - conda-forge
   - defaults
+  
 dependencies:
   - nextflow
   - fastqc
