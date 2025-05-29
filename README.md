@@ -23,7 +23,7 @@ cd Nextflow_RNASeq
 
 ### 2. Prepare Input Data
 Create a `data` directory in the root of the project and place your input files as follows:
-- `data/chrX.fa`: Reference genome in FASTA format.
+- `data/chrX.fa`: Reference genome in FASTA format
 - `data/chrX.gtf`: Reference gene annotation in GTF format.
 
 
@@ -60,7 +60,8 @@ The pipeline will process your RNA-seq data, and results will be saved in the `r
 4. **Read Mapping**: Paired-end reads are aligned to the reference genome using the STAR aligner.
 5. **Feature Counting**: The aligned BAM files are processed with featureCounts to count the number of reads aligned to each gene.
 
-   ![Untitled diagram-2025-03-27-032756](https://github.com/user-attachments/assets/5bf25b15-9248-4fe8-aa04-69f084511e90)
+   ![image](https://github.com/user-attachments/assets/8e905afb-13a5-4da9-9676-c572379ff384)
+
 
 
 ## Downloading and Merging the Reference Genome
