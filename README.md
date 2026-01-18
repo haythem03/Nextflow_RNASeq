@@ -61,3 +61,74 @@ The pipeline executes the following steps automatically:
 ```bash
 git clone [https://github.com/haythem03/Nextflow_RNASeq.git](https://github.com/haythem03/Nextflow_RNASeq.git)
 cd Nextflow_RNASeq
+```
+### Step 2 — Install Nextflow
+
+Ensure Java is installed, then run:
+
+curl -s https://get.nextflow.io | bash
+
+(Optional)
+
+mv nextflow /usr/local/bin
+
+### Step 3 — Prepare Reference Data (required)
+
+Because of GitHub file-size limits, the reference genome `chrX.fa` is split into multiple parts. You **must merge them** before running the pipeline.
+
+cd data
+cat chrX\_part\_\* > chrX.fa
+md5sum chrX.fa   # optional integrity check
+cd ..
+
+Your `data/` folder must contain:
+
+-   `chrX.fa` – merged reference genome
+-   `chrX.gtf` – annotation file
+
+## 🏃 Usage
+
+### Run with default parameters
+
+nextflow run Nextflow\_Pipeline.nf
+
+### Run with custom parameters
+
+nextflow run Nextflow\_Pipeline.nf \\
+  --reads "data/\*\_{1,2}.fastq.gz" \\
+  --ref\_fasta "/path/to/genome.fa" \\
+  --ref\_gtf "/path/to/genes.gtf" \\
+  --strand 1
+
+## ⚙️ Configuration
+
+Parameters can be modified inside `Nextflow_Pipeline.nf` or overridden at runtime.
+
+ParameterDefaultDescription`params.readsdata/reads/*_{1,2}.fastq.gz`Input paired-end FASTQ files`params.ref_fastadata/chrX.fa`Reference genome FASTA`params.ref_gtfdata/chrX.gtf`Gene annotation file`params.strand0`0 = unstranded, 1 = stranded, 2 = reverse`params.outdirresults/`Output directory
+
+## 📂 Outputs
+
+After completion, results are organized as follows:
+
+results/
+├── TRIMMED/         # Cleaned FASTQ files
+├── QC\_reports/      # FastQC and MultiQC summaries
+├── INDEX/           # STAR genome indices
+├── MAPPING/         # Sorted BAM alignment files
+└── Feature\_Counts/  # Gene expression matrices
+
+Each folder contains reproducible intermediate files suitable for auditing or re-analysis.
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+1.  Fork the repository
+2.  Create a feature branch
+3.  Submit a Pull Request
+
+For major changes, please open an issue first to discuss your proposal.
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file in the repository for details.
